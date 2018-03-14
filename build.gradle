@@ -1,0 +1,52 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.parfait.study'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+
+        compileOnly('org.projectlombok:lombok')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile('io.projectreactor:reactor-test')
+    }
+}
+
+project(":webflux-pub") {
+    dependencies {
+        compile project(":model")
+    }
+}
+
+project(":webflux-sub") {
+    dependencies {
+        compile project(":model")
+    }
+}
+
+project(":webmvc-pub") {
+    dependencies {
+        compile project(":model")
+    }
+}
