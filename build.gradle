@@ -39,12 +39,6 @@ project(":webflux-pub") {
     }
 }
 
-project(":webflux-sub") {
-    dependencies {
-        compile project(":model")
-    }
-}
-
 project(":webmvc-pub") {
     dependencies {
         compile project(":model")
