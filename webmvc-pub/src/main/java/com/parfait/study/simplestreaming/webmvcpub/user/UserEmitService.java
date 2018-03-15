@@ -49,7 +49,6 @@ public class UserEmitService {
         }
 
         for (ResponseBodyEmitter emitter : toBeRemoved) {
-            emitter.complete();
             emitterCountMap.remove(emitter);
         }
     }
